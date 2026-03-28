@@ -1,68 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro'
-
-const wikiPassword = import.meta.env.WIKI_PASSWORD
 ---
 
-<Layout title="family wiki — bilomast">
+<Layout title="family wiki — bilomasti">
   <main class="max-w-2xl mx-auto px-6 py-20">
 
     <a href="/" class="text-neutral-500 text-sm hover:text-neutral-300 transition-colors">← back</a>
 
     <div class="mt-12">
       <h1 class="text-2xl font-bold text-white mb-2">family wiki</h1>
-      <p class="text-neutral-500 text-sm mb-10">private — enter password to access</p>
-
-      <div id="lock-screen" data-hash={wikiPassword}>
-        <form id="wiki-form" class="space-y-4">
-          <input
-            type="password"
-            id="password"
-            placeholder="password"
-            autocomplete="current-password"
-            class="w-full bg-neutral-900 border border-neutral-800 text-neutral-200 px-4 py-3 text-sm focus:outline-none focus:border-neutral-600 placeholder-neutral-600"
-          />
-          <button
-            type="submit"
-            class="px-4 py-2 bg-neutral-900 border border-neutral-800 text-neutral-300 text-sm hover:border-neutral-600 hover:text-white transition-colors"
-          >
-            enter →
-          </button>
-          <p id="error-msg" class="text-red-500 text-xs hidden">incorrect password</p>
-        </form>
-      </div>
-
-      <div id="wiki-content" class="hidden space-y-8">
-        <p class="text-neutral-400 text-sm">wiki content goes here. add pages, family tree, notes, etc.</p>
-      </div>
+      <p class="text-neutral-400 text-sm mb-8">wiki content goes here. add pages, family tree, notes, etc.</p>
     </div>
 
   </main>
 </Layout>
-
-<script>
-  const form = document.getElementById('wiki-form') as HTMLFormElement
-  const input = document.getElementById('password') as HTMLInputElement
-  const errorMsg = document.getElementById('error-msg') as HTMLElement
-  const lockScreen = document.getElementById('lock-screen') as HTMLElement
-  const wikiContent = document.getElementById('wiki-content') as HTMLElement
-
-  const correctPassword = lockScreen.dataset.hash
-
-  if (sessionStorage.getItem('wiki_unlocked') === 'true') {
-    lockScreen.classList.add('hidden')
-    wikiContent.classList.remove('hidden')
-  }
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault()
-    if (input.value === correctPassword) {
-      sessionStorage.setItem('wiki_unlocked', 'true')
-      lockScreen.classList.add('hidden')
-      wikiContent.classList.remove('hidden')
-    } else {
-      errorMsg.classList.remove('hidden')
-      input.value = ''
-    }
-  })
-</script>
