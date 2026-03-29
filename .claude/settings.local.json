@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv cyan-cluster/astro.config.mjs cyan-cluster/package.json cyan-cluster/tsconfig.json .)",
+      "Bash(mv cyan-cluster/public cyan-cluster/src .)",
+      "Bash(rm -rf cyan-cluster)",
+      "Bash(npm install:*)",
+      "Bash(npx astro:*)"
+    ]
+  }
+}
