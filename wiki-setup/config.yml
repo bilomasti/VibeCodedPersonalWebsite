@@ -13,8 +13,12 @@ bindIP: 0.0.0.0
 # Using SQLite - no setup needed, data stored in a local file
 # ---------------------------------------------------------------------
 db:
-  type: sqlite
-  storage: db.sqlite
+  type: mariadb
+  host: localhost
+  port: 3306
+  user: bilomast_DB
+  pass: $(DB_PASS)
+  db: bilomast_wiki
 
 # ---------------------------------------------------------------------
 # SSL (handled by cPanel/Apache, leave off here)
