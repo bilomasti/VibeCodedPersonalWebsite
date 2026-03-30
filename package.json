@@ -18,6 +18,7 @@
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
+    "basic-ftp": "^5.2.0",
     "dotenv": "^17.3.1",
     "ftp-deploy": "^2.4.7"
   }
