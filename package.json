@@ -10,7 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "npm run build && node deploy.mjs"
+    "deploy": "node deploy.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
@@ -21,6 +21,7 @@
     "basic-ftp": "^5.2.0",
     "dotenv": "^17.3.1",
     "ftp-deploy": "^2.4.7",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "ssh2": "^1.17.0"
   }
 }
